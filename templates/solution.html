@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta content="text/html; charset=utf-8" > </meta>
+
+    <style>
+
+        h1   {color: red; text-align:center; font-family:verdana;}
+        p    {color: black;}
+
+
+        table {
+		    font-family: arial, sans-serif;
+		    border-collapse: collapse;
+		    	width: 100%;
+			}
+
+			td, th {
+		    border: 1px solid #dddddd;
+		    text-align: left;
+		    padding: 8px;
+			}
+
+    </style>
+    <link rel="stylesheet" href="https://www.google.com/css/maia.css">
+</head>
+
+<body>
+
+    <header><title> BuzzKilled {{title}} </title></header>
+     <a href="/"> <h1>BuzzKill </h1> </a>
+    <h2>{{title}}</h2>
+
+    <p>
+		<table style="width:100%">
+	
+		
+		  <tr>
+		  	<th>
+  			{% for str in top_row %}
+			<th> {{ str }} </th>
+			{% endfor %}	
+		  </tr>
+
+		  {% for q in questions %}
+		  <tr>
+		    <td>{{q[0]}} <br />
+		    	{% if q[1] %} {{q[1]}} {% endif %} <br />
+		    {% if q[2] %} 
+			<img src={{q[2]}} width="200"> {% endif %}</td>
+		  	{% for a in q[3] %}
+		  	<td> {{a[0]}} <br />
+		  		{% if a[1] %} <img src={{a[1]}} width="200"> {% endif %} </td>
+		  	{% endfor %}
+		  </tr>
+		  {% endfor %}
+		  
+		  <tr>
+		  	<th>
+  			{% for user in users %}
+			<th> {{ user[0] }} </th>
+			{% endfor %}	
+		  </tr>
+
+  		  <tr>
+  			<td></td>> 
+  			{% for user in users %}
+			<td> {% if user[1] %} {{user[1]}} {% endif %} <br /> {% if user[2] %} <img src={{user[2]}} width="200"> {% endif %} </td>
+			{% endfor %}
+		  </tr>
+
+
+
+		</table>
+		
+	</p>
+
+
+</body>
+</html>
