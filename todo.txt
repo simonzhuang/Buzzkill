@@ -1,0 +1,6 @@
+"format=input"
+Apostraphe rendering
+404 Error page
+Format the HTML file for different types of quizzes
+More intuitive variable names
+Put it online

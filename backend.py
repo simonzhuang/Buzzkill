@@ -2,9 +2,6 @@ import urllib.request
 from html.parser import HTMLParser
 import json
 
-
-# todo: form, "format=input", apostraphe, 404, clean up spaces/format html
-
 class Quiz:
     @staticmethod
     def url_to_quiz(url):
