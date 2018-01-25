@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta content="text/html; charset=utf-8" > </meta>
+    <link rel="stylesheet" href={{ url_for('static', filename='assets/css/main.css') }} />
+</head>
+
+<body>
+	<header><title> BuzzKilled {{title}} </title></header>
+    
+	<section id="one" class="main style1">
+		<div class="container">
+     <a href="/"> <p>Go Back</p> </a>
+	    <h2>{{title}}</h2>
+		<div class="table-wrapper">
+			<table style="width:100%">
+				
+			<thead>
+			  <tr>
+			  	<th>
+	  			{% for str in top_row %} </th>
+				<th> {{ str }} </th>
+				{% endfor %}	
+			  </tr>
+			 </thead>
+			  {% for q in questions %}
+			  <tr>
+			    <td>{{q[0]}} <br />
+			    	{% if q[1] %} {{q[1]}} {% endif %} <br />
+			    {% if q[2] %} 
+				<img src={{q[2]}} width="200"> {% endif %}</td>
+			  	{% for a in q[3] %}
+			  	<td> {{a[0]}} <br />
+			  		{% if a[1] %} <img src={{a[1]}} width="200"> {% endif %} </td>
+			  	{% endfor %}
+			  </tr>
+			  {% endfor %}
+							  
+			  <tr>
+			  	<th>
+	  			{% for user in users %} </th>
+				<th> {{ user[0] }} </th>
+				{% endfor %}	
+			  </tr>
+
+	  		  <tr>
+	  			<td></td>> 
+	  			{% for user in users %}
+				<td> {% if user[1] %} {{user[1]}} {% endif %} <br /> {% if user[2] %} <img src={{user[2]}} width="200"> {% endif %} </td>
+				{% endfor %}
+			  </tr>
+
+			</table>
+		</div>					
+	</div>
+</section>
+
+</body>
+</html>

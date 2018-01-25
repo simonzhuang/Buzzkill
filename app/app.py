@@ -9,18 +9,18 @@ app.config['SECRET_KEY'] = 'buzzfeed-sucks'
 
 
 
-class LoginForm(FlaskForm):
+class Form(FlaskForm):
     siteurl = StringField('Quiz URL', validators=[DataRequired()])
     submit = SubmitField('Submit')
 
 @app.route("/", methods=['GET', 'POST'])
 def index():
-    form = LoginForm()
+    form = Form()
     if form.validate_on_submit():
         url=form.siteurl.data
         shortened=url[url.index('.com')+4:]
         return redirect(shortened)
-    return render_template('index.html', title='Sign In', form=form)
+    return render_template('index.html', form=form)
 
 @app.route("/<string:first>/<string:rest>/")
 def solver(first,rest):
